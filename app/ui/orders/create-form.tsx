@@ -40,20 +40,6 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
   return (
     <form action={formAction}>
       <div className="rounded-md bg-gray-50 p-4 md:p-6">
-        {/* Información sobre pedidos */}
-        <div className="mb-4 p-3 bg-blue-50 rounded-md">
-          <p className="text-sm text-blue-800 mb-2">
-            <strong>¿Qué es un pedido?</strong> Un pedido es una solicitud de compra que un cliente realiza.
-            Puedes agregar múltiples productos.
-          </p>
-          <p className="text-sm text-blue-800">
-            <strong>Importante:</strong> El sistema calculará automáticamente el total aplicando:
-            <br />• <strong>Descuentos escalonados</strong> (5% si &lt; $1,000 | 10% si $1,000-$4,999 | 15% si ≥ $5,000)
-            <br />• <strong>IVA del 15%</strong> sobre el monto con descuento
-            <br />El precio final puede ser mayor o menor que la suma de los precios de los productos.
-          </p>
-        </div>
-
         {/* Customer Selection */}
         <div className="mb-4">
           <label htmlFor="clienteId" className="mb-2 block text-sm font-medium">
