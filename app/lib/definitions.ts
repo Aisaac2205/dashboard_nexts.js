@@ -2,6 +2,8 @@
 // It describes the shape of the data, and what data type each property should accept.
 // For simplicity of teaching, we're manually defining these types.
 // However, these types are generated automatically if you're using an ORM such as Prisma.
+
+// User type for authentication
 export type User = {
   id: string;
   name: string;
@@ -9,21 +11,23 @@ export type User = {
   password: string;
 };
 
+// Customer type - compatible with ClienteDTO from Java microservice
 export type Customer = {
   id: string;
   name: string;
   email: string;
-  image_url: string;
+  image_url?: string; // Optional for compatibility
 };
 
+// Invoice type - compatible with FacturaDTO from Java microservice
 export type Invoice = {
   id: string;
   customer_id: string;
   amount: number;
-  date: string;
+  date?: string; // Optional for compatibility
   // In TypeScript, this is called a string union type.
   // It means that the "status" property can only be one of the two strings: 'pending' or 'paid'.
-  status: 'pending' | 'paid';
+  status?: 'pending' | 'paid'; // Optional for compatibility
 };
 
 export type Revenue = {
@@ -34,7 +38,7 @@ export type Revenue = {
 export type LatestInvoice = {
   id: string;
   name: string;
-  image_url: string;
+  image_url?: string; // Opcional, ya no se usa
   email: string;
   amount: string;
 };
@@ -49,7 +53,7 @@ export type InvoicesTable = {
   customer_id: string;
   name: string;
   email: string;
-  image_url: string;
+  image_url?: string; // Opcional, ya no se usa
   date: string;
   amount: number;
   status: 'pending' | 'paid';
@@ -59,7 +63,7 @@ export type CustomersTableType = {
   id: string;
   name: string;
   email: string;
-  image_url: string;
+  image_url?: string; // Opcional, ya no se usa
   total_invoices: number;
   total_pending: number;
   total_paid: number;
@@ -69,7 +73,7 @@ export type FormattedCustomersTable = {
   id: string;
   name: string;
   email: string;
-  image_url: string;
+  image_url?: string; // Opcional, ya no se usa
   total_invoices: number;
   total_pending: string;
   total_paid: string;
