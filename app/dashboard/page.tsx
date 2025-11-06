@@ -10,12 +10,15 @@ import {
   CardsSkeleton,
 } from '@/app/ui/skeletons';
 import { Metadata } from 'next';
+import { unstable_noStore as noStore } from 'next/cache';
 
 export const metadata: Metadata = {
   title: 'Dashboard',
 };
  
 export default async function Page() {
+  // Evitar cache y prerendering para datos dinámicos
+  noStore();
   const latestInvoices = await fetchLatestInvoices();
   
   return (
